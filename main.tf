@@ -8,7 +8,7 @@
 resource "aws_ssm_parameter" "_" {
   for_each = var.parameters
 
-  name            = "/${var.app_name}/${var.mod_name}/${var.env_name}/${each.key}"
+  name            = "/${var.app_name}/${var.env_name}/${var.mod_name}/${each.key}"
   type            = each.value["type"]
   value           = each.value["value"]
   description     = lookup(each.value, "description", null)
